@@ -11,9 +11,11 @@ import { CastCard, CatalogGrid, Footer, Nav, PosterCard, PosterRow, Section, typ
 import { fetchPersonProfile, fetchTalkFeed, fetchTmdbDetailByQuery, fetchTmdbTitle, parseTmdbId } from './tmdb.js'
 import { findLocalOrExtraMovie, isSeries, mergeUnique, movieHref, normalizeText, posterFallback, searchItems } from './utils.js'
 
+const BASE_URL = import.meta.env.BASE_URL
+
 const OTT_LOGOS = {
   Netflix: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg',
-  'Prime Video': '/prime-video-logo.svg',
+  'Prime Video': `${BASE_URL}prime-video-logo.svg`,
   Hotstar: 'https://cdn.jiostar.com/jiostar/wp-content/uploads/2025/07/JioHot-Star-1.png',
   Crunchyroll: 'https://images.icon-icons.com/2389/PNG/512/crunchyroll_logo_icon_145360.png',
 }

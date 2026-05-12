@@ -3,6 +3,8 @@ import { getAllMovies } from './data.js'
 import { castHref, isSeries, movieHref, posterFallback, searchItems } from './utils.js'
 import { searchTmdb } from './tmdb.js'
 
+const BASE_URL = import.meta.env.BASE_URL
+
 export function Nav({ active = 'home' }) {
   const [open, setOpen] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -146,7 +148,7 @@ export function Nav({ active = 'home' }) {
             aria-expanded={mobileOpen}
             style={menuActionStyle}
           >
-            <img src="/hamburger.png" alt="" aria-hidden="true" style={{ width: 24, height: 24, display: 'block', filter: 'invert(1)' }} />
+            <img src={`${BASE_URL}hamburger.png`} alt="" aria-hidden="true" style={{ width: 24, height: 24, display: 'block', filter: 'invert(1)' }} />
           </button>
         </div>
         <div className="nav-search-popover" style={compactSearchStyle}>
