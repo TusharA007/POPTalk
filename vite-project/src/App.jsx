@@ -345,7 +345,7 @@ function MoviePage({ id, extras, addExtras }) {
             />
           </div>
           <div className="info-main">
-            <span className="hero-tag">{movie.type} • {movie.year}</span>
+            <span className="hero-tag">{movie.type} / {movie.year}</span>
             <h1>{movie.title}</h1>
             <p>{movie.overview}</p>
             <div className="info-meta">
@@ -366,12 +366,12 @@ function MoviePage({ id, extras, addExtras }) {
           </div>
         </div>
       </section>
-      {movie.vibes ? (
-        <Section title="Vibe Chart">
-          <VibeChart vibes={movie.vibes} />
-        </Section>
-      ) : null}
       <main className="detail-wrap">
+        {movie.vibes ? (
+          <Section title="Vibe Chart">
+            <VibeChart vibes={movie.vibes} />
+          </Section>
+        ) : null}
         <Section title="Cast & Crew">
           <div className="cast-scroll">{(movie.cast || []).map((member) => <CastCard key={`${member.name}-${member.role}`} member={member} from={movie.id} />)}</div>
         </Section>
