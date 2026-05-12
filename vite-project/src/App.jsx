@@ -397,8 +397,12 @@ function CastPage({ path }) {
   const [profile, setProfile] = useState(null)
 
   useEffect(() => {
+    if (localActor && !personId) {
+      setProfile(null)
+      return
+    }
     fetchPersonProfile({ name, tmdbPersonId: personId }).then(setProfile).catch(() => setProfile(null))
-  }, [name, personId])
+  }, [name, personId, localActor])
 
   const credits = mergeUnique([...(localActor?.credits || []), ...(profile?.topCredits || [])])
   const displayName = profile?.name || localActor?.name || name || 'Cast member'
